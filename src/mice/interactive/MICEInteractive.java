@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package mice.interactive;
-import oru.inf.infDB;
+import oru.inf.InfDB;
 import oru.inf.InfException;
 import javax.swing.JOptionPane;
         
@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class MICEInteractive {
    
-    private infDB databas;
+    private InfDB databas;
     
      
     public static void main(String[] args) {
