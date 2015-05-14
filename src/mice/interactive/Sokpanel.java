@@ -5,17 +5,31 @@
  */
 package mice.interactive;
 
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import oru.inf.InfDB;
+import oru.inf.InfException;
+
 /**
  *
  * @author pemo
  */
-public class Inoggad extends javax.swing.JFrame {
+public class Sokpanel extends javax.swing.JFrame {
 
+    private InfDB databasen;
     /**
      * Creates new form Inoggad
      */
-    public Inoggad() {
+    public Sokpanel() {
+        try {
+            databasen = new InfDB("C:\\Users\\pemo\\Desktop\\MICE_Interactive\\MICEDB.FDB");
+        } catch (InfException ex) {
+            Logger.getLogger(Sokpanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
         initComponents();
+        fyllCombKompetensDoman();
     }
 
     /**
@@ -34,7 +48,7 @@ public class Inoggad extends javax.swing.JFrame {
         scrollResultat = new javax.swing.JScrollPane();
         listResultat = new javax.swing.JList();
         labelKunskapDoman = new javax.swing.JLabel();
-        combKunskapsDoman = new javax.swing.JComboBox();
+        combKompetensDoman = new javax.swing.JComboBox();
         labelProjekt = new javax.swing.JLabel();
         combProjekt = new javax.swing.JComboBox();
         labelKompetens = new javax.swing.JLabel();
@@ -62,10 +76,10 @@ public class Inoggad extends javax.swing.JFrame {
 
         labelKunskapDoman.setText("KunskapsDomän");
 
-        combKunskapsDoman.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        combKunskapsDoman.addActionListener(new java.awt.event.ActionListener() {
+        combKompetensDoman.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combKompetensDoman.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                combKunskapsDomanActionPerformed(evt);
+                combKompetensDomanActionPerformed(evt);
             }
         });
 
@@ -109,7 +123,7 @@ public class Inoggad extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(combKunskapsDoman, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(combKompetensDoman, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(labelKunskapDoman))
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,7 +168,7 @@ public class Inoggad extends javax.swing.JFrame {
                             .addComponent(labelKompetens))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(combKunskapsDoman, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(combKompetensDoman, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(combKompetens, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(labelLedare)
@@ -177,9 +191,9 @@ public class Inoggad extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void combKunskapsDomanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combKunskapsDomanActionPerformed
+    private void combKompetensDomanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combKompetensDomanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_combKunskapsDomanActionPerformed
+    }//GEN-LAST:event_combKompetensDomanActionPerformed
 
     private void combKompetensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combKompetensActionPerformed
         // TODO add your handling code here:
@@ -202,27 +216,28 @@ public class Inoggad extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Inoggad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Sokpanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Inoggad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Sokpanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Inoggad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Sokpanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Inoggad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Sokpanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Inoggad().setVisible(true);
+                new Sokpanel().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox combKompetens;
-    private javax.swing.JComboBox combKunskapsDoman;
+    private javax.swing.JComboBox combKompetensDoman;
     private javax.swing.JComboBox combLedare;
     private javax.swing.JComboBox combPlattform;
     private javax.swing.JComboBox combProjekt;
@@ -239,4 +254,21 @@ public class Inoggad extends javax.swing.JFrame {
     private javax.swing.JScrollPane scrollResultat;
     private javax.swing.JTextField txtSokPerson;
     // End of variables declaration//GEN-END:variables
+
+    private void fyllCombKompetensDoman() {
+        
+        String query = "SELECT BENAMNING FROM KOMPETENSDOMAN";
+        try {
+            combKompetensDoman.removeAllItems();
+            ArrayList<String> domaner = databasen.fetchColumn(query);
+            combKompetensDoman.addItem("None");
+            for(String doman : domaner)
+            {
+                combKompetensDoman.addItem(doman);
+                
+            }
+        } catch (InfException ex) {
+            JOptionPane.showMessageDialog(labelKompetens, "Ingen data kunde hittas. grymt fel här!");
+        }
+    }
 }
