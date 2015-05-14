@@ -30,6 +30,7 @@ public class Sokpanel extends javax.swing.JFrame {
         }
         initComponents();
         fyllCombKompetensDoman();
+        fyllKompetens();
     }
 
     /**
@@ -270,5 +271,20 @@ public class Sokpanel extends javax.swing.JFrame {
         } catch (InfException ex) {
             JOptionPane.showMessageDialog(labelKompetens, "Ingen data kunde hittas. grymt fel här!");
         }
+    }
+    private void fyllKompetens(){
+        
+          String query = "SELECT KOMPETENSNIVA FROM HAR_KOMPETENS";
+          try {
+                combKompetens.removeAllItems();
+                ArrayList<String> nivaer = databasen.fetchColumn(query);
+                combKompetens.addItem("None");
+                for(String niva : nivaer)
+                {
+                    combKompetens.addItem(niva);
+                }
+            } catch (InfException ex) {
+                JOptionPane.showMessageDialog(labelKompetens, "Ingen data kunde hittas. grymt fel här!");
+            }
     }
 }
