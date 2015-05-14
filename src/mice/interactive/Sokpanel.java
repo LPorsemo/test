@@ -273,18 +273,13 @@ public class Sokpanel extends javax.swing.JFrame {
         }
     }
     private void fyllKompetens(){
-        
-          String query = "SELECT KOMPETENSNIVA FROM HAR_KOMPETENS";
-          try {
+       
                 combKompetens.removeAllItems();
-                ArrayList<String> nivaer = databasen.fetchColumn(query);
                 combKompetens.addItem("None");
-                for(String niva : nivaer)
-                {
-                    combKompetens.addItem(niva);
-                }
-            } catch (InfException ex) {
-                JOptionPane.showMessageDialog(labelKompetens, "Ingen data kunde hittas. grymt fel här!");
-            }
+                combKompetens.addItem("1");
+                combKompetens.addItem("2");
+                combKompetens.addItem("3");
+                combKompetens.addItem("4");
+                combKompetens.addItem("5");
     }
 }
