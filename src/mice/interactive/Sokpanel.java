@@ -32,6 +32,7 @@ public class Sokpanel extends javax.swing.JFrame {
         fyllCombKompetensDoman();
         fyllKompetens();
         fyllProjekt();
+        fyllPlattform();
     }
 
     /**
@@ -110,6 +111,11 @@ public class Sokpanel extends javax.swing.JFrame {
         labelPlattform.setText("Plattform");
 
         combPlattform.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combPlattform.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combPlattformActionPerformed(evt);
+            }
+        });
 
         jbnSok.setText("Search");
 
@@ -121,26 +127,28 @@ public class Sokpanel extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(labelSok)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtSokPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jbnSok, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelLedare)
-                    .addComponent(combLedare, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelProjekt)
-                    .addComponent(combPlattform, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelPlattform)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(combProjekt, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(combKompetensDoman, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(labelKunskapDoman))
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(labelKompetens)
-                                .addComponent(combKompetens, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelSok)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtSokPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jbnSok, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelLedare)
+                            .addComponent(combLedare, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelProjekt)
+                            .addComponent(labelPlattform)
+                            .addComponent(combProjekt, 0, 276, Short.MAX_VALUE)
+                            .addComponent(combPlattform, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelKunskapDoman)
+                            .addComponent(combKompetensDoman, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(labelKompetens, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(combKompetens, 0, 1, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(scrollResultat, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
             .addGroup(layout.createSequentialGroup()
@@ -206,6 +214,10 @@ public class Sokpanel extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_combProjektActionPerformed
 
+    private void combPlattformActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combPlattformActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combPlattformActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -264,7 +276,7 @@ public class Sokpanel extends javax.swing.JFrame {
 
     private void fyllCombKompetensDoman() {
         
-        String query = "SELECT BENAMNING FROM KOMPETENSDOMAN";
+        String query = "SELECT BENAMNING FROM KOMPETENSDOMAN ORDER BY BENAMNING ASC";
         try {
             combKompetensDoman.removeAllItems();
             ArrayList<String> domaner = databasen.fetchColumn(query);
@@ -291,7 +303,7 @@ public class Sokpanel extends javax.swing.JFrame {
 
     private void fyllProjekt() {
         
-        String query = "SELECT BETECKNING FROM SPELPROJEKT";
+        String query = "SELECT BETECKNING FROM SPELPROJEKT ORDER BY BETECKNING ASC";
         try {
             
             combProjekt.removeAllItems();
@@ -300,6 +312,23 @@ public class Sokpanel extends javax.swing.JFrame {
             for(String projekt : projekten)
             {
                 combProjekt.addItem(projekt);
+                
+            }
+        } catch (InfException ex) {
+            JOptionPane.showMessageDialog(labelKompetens, "Ingen data kunde hittas. grymt fel här!");
+        }
+    }
+     private void fyllPlattform() {
+        
+        String query = "SELECT BENAMNING FROM PLATTFORM ORDER BY BENAMNING ASC";
+        try {
+            
+            combPlattform.removeAllItems();
+            ArrayList<String> plattformarna = databasen.fetchColumn(query);
+            combPlattform.addItem("None");
+            for(String plattform : plattformarna)
+            {
+                combPlattform.addItem(plattform);
                 
             }
         } catch (InfException ex) {
