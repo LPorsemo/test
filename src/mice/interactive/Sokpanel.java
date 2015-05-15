@@ -303,7 +303,7 @@ public class Sokpanel extends javax.swing.JFrame {
                 
             }
         } catch (InfException ex) {
-            JOptionPane.showMessageDialog(labelKompetens, "Ingen data kunde hittas. grymt fel här!");
+            JOptionPane.showMessageDialog(labelKompetens, "Ingen data kunde hittas.");
         }
     }
 }
