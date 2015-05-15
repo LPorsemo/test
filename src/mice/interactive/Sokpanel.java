@@ -24,7 +24,8 @@ public class Sokpanel extends javax.swing.JFrame {
      */
     public Sokpanel() {
         try {
-            databasen = new InfDB("C:\\Users\\pemo\\Desktop\\MICE_Interactive\\MICEDB.FDB");
+            databasen = new InfDB("C:\\Program Files\\databasen\\MICE_Interactive\\MICEDB.FDB");
+            
         } catch (InfException ex) {
             Logger.getLogger(Sokpanel.class.getName()).log(Level.SEVERE, null, ex);
         }
