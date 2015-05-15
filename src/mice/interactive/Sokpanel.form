@@ -26,45 +26,49 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="labelSok" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="txtSokPerson" min="-2" pref="154" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="jbnSok" min="-2" pref="99" max="-2" attributes="0"/>
-                  <Component id="labelLedare" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="combLedare" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
-                  <Component id="labelProjekt" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="combPlattform" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
-                  <Component id="labelPlattform" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="combProjekt" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="combKompetensDoman" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
-                              <Component id="labelKunskapDoman" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="labelSok" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="txtSokPerson" min="-2" pref="154" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="labelKompetens" min="-2" max="-2" attributes="0"/>
-                              <Component id="combKompetens" min="-2" pref="99" max="-2" attributes="0"/>
+                          <Component id="jbnSok" min="-2" pref="99" max="-2" attributes="0"/>
+                          <Component id="labelLedare" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="combLedare" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
+                          <Component id="labelProjekt" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="combPlattform" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
+                          <Component id="labelPlattform" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="combProjekt" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="combKompetensDoman" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
+                                      <Component id="labelKunskapDoman" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="labelKompetens" min="-2" max="-2" attributes="0"/>
+                                      <Component id="combKompetens" min="-2" pref="99" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
+                      <EmptySpace pref="107" max="32767" attributes="0"/>
+                      <Component id="scrollResultat" min="-2" pref="206" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="labelResultat" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="21" max="32767" attributes="0"/>
-              <Component id="scrollResultat" min="-2" pref="206" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="221" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="225" max="-2" attributes="0"/>
               <Component id="labelSidNamn" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="labelResultat" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -73,9 +77,9 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Component id="labelSidNamn" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="27" max="32767" attributes="0"/>
+              <EmptySpace pref="18" max="32767" attributes="0"/>
               <Component id="labelResultat" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="10" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -117,6 +121,9 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="labelSidNamn">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="24" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="S&#xf6;k Personal"/>
       </Properties>
     </Component>
