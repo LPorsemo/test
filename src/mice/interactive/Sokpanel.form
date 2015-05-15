@@ -34,7 +34,11 @@
                   <Component id="jbnSok" min="-2" pref="99" max="-2" attributes="0"/>
                   <Component id="labelLedare" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="combLedare" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
+                  <Component id="labelProjekt" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="combPlattform" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
+                  <Component id="labelPlattform" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="combProjekt" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="combKompetensDoman" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
@@ -44,17 +48,6 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="labelKompetens" min="-2" max="-2" attributes="0"/>
                               <Component id="combKompetens" min="-2" pref="99" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="combProjekt" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
-                              <Component id="labelProjekt" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="labelPlattform" min="-2" max="-2" attributes="0"/>
-                              <Component id="combPlattform" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -104,16 +97,14 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="combLedare" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelProjekt" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelPlattform" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="labelProjekt" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="combProjekt" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="combPlattform" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                      <Component id="combProjekt" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                      <Component id="labelPlattform" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="combPlattform" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Component id="jbnSok" min="-2" pref="33" max="-2" attributes="0"/>
                   </Group>
                   <Component id="scrollResultat" max="32767" attributes="0"/>
@@ -199,6 +190,9 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="combProjektActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="labelKompetens">
       <Properties>

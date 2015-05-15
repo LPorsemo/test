@@ -31,6 +31,7 @@ public class Sokpanel extends javax.swing.JFrame {
         initComponents();
         fyllCombKompetensDoman();
         fyllKompetens();
+        fyllProjekt();
     }
 
     /**
@@ -87,6 +88,11 @@ public class Sokpanel extends javax.swing.JFrame {
         labelProjekt.setText("Projekt");
 
         combProjekt.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combProjekt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combProjektActionPerformed(evt);
+            }
+        });
 
         labelKompetens.setText("Kompetens");
 
@@ -121,7 +127,11 @@ public class Sokpanel extends javax.swing.JFrame {
                     .addComponent(jbnSok, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelLedare)
                     .addComponent(combLedare, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelProjekt)
+                    .addComponent(combPlattform, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelPlattform)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(combProjekt, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(combKompetensDoman, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -129,15 +139,7 @@ public class Sokpanel extends javax.swing.JFrame {
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(labelKompetens)
-                                .addComponent(combKompetens, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(combProjekt, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(labelProjekt))
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(labelPlattform)
-                                .addComponent(combPlattform, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(combKompetens, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(scrollResultat, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
@@ -176,14 +178,14 @@ public class Sokpanel extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(combLedare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelProjekt)
-                            .addComponent(labelPlattform))
+                        .addComponent(labelProjekt)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(combProjekt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(combPlattform, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(92, 92, 92)
+                        .addComponent(combProjekt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)
+                        .addComponent(labelPlattform)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(combPlattform, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
                         .addComponent(jbnSok, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(scrollResultat))
                 .addGap(35, 35, 35))
@@ -199,6 +201,10 @@ public class Sokpanel extends javax.swing.JFrame {
     private void combKompetensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combKompetensActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_combKompetensActionPerformed
+
+    private void combProjektActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combProjektActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combProjektActionPerformed
 
     /**
      * @param args the command line arguments
@@ -281,5 +287,23 @@ public class Sokpanel extends javax.swing.JFrame {
                 combKompetens.addItem("3");
                 combKompetens.addItem("4");
                 combKompetens.addItem("5");
+    }
+
+    private void fyllProjekt() {
+        
+        String query = "SELECT BETECKNING FROM SPELPROJEKT";
+        try {
+            
+            combProjekt.removeAllItems();
+            ArrayList<String> projekten = databasen.fetchColumn(query);
+            combProjekt.addItem("None");
+            for(String projekt : projekten)
+            {
+                combProjekt.addItem(projekt);
+                
+            }
+        } catch (InfException ex) {
+            JOptionPane.showMessageDialog(labelKompetens, "Ingen data kunde hittas. grymt fel här!");
+        }
     }
 }
