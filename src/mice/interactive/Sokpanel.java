@@ -24,7 +24,8 @@ public class Sokpanel extends javax.swing.JFrame {
      */
     public Sokpanel() {
         try {
-            databasen = new InfDB("C:\\Users\\pemo\\Desktop\\MICE_Interactive\\MICEDB.FDB");
+            databasen = new InfDB("C:\\Program Files\\databasen\\MICEDB.FDB");
+       
         } catch (InfException ex) {
             Logger.getLogger(Sokpanel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -303,7 +304,7 @@ public class Sokpanel extends javax.swing.JFrame {
 
     private void fyllProjekt() {
         
-        String query = "SELECT BETECKNING FROM SPELPROJEKT ORDER BY BETACKNING ASC";
+        String query = "SELECT BETECKNING FROM SPELPROJEKT ORDER BY BETECKNING ASC";
         try {
             
             combProjekt.removeAllItems();
